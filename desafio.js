@@ -12,15 +12,28 @@ Código Condição de pagamento
  */
 // recebendo o preço do produto e 
 //tranformando o valor em decimal com parseFloat
-const precoProduto = parseFloat(prompt('Qual é o preço do produto?'))
+let precoProduto = parseFloat(prompt('Qual é o preço do produto?'))
+
+while(isNaN(precoProduto) == true){
+    alert('O preço digitado é inválido. Por favor, infrome o preço apenas com números, sem caracteres especiaos (acentos, letras, etc.) ')
+    precoProduto = parseFloat(prompt('Qual é o preço do produto?'))
+}
+
 const mensagem = `
 Informe o método de pagamento:
 Digite 1 para pagamento em dinheiro
 Digite 2 para o pagamento em cheque
 Digite 3 para pagamento com cartão
 `
+let metodoDePagamento = prompt(mensagem)
 
-const metodoDePagamento = prompt(mensagem)
+while(isNaN(metodoDePagamento) || metodoDePagamento < 1 || metodoDePagamento > 3){
+    alert('O método de pagamento é inválido. Por favor, digite as opções 1, 2 ou 3 ) ')
+    metodoDePagamento = parseInt(prompt(`Qual é o preço do método de pagamento?
+                                        Digite 1 para ter 15% de desconto
+                                        Digite 2 para parcelas iguais e sem juros
+                                        Digite 3 para parcelar com acréscimo de 10% sobre o valor`))
+}
 
 console.log(precoProduto)
 console.log(metodoDePagamento)
